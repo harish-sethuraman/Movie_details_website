@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html class="scrollbar" id="scrollstyle" lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Movie wiki</title>
+  <link href="style.css" rel="stylesheet">
+  <script>
+    function getQueryStringValue(key) {
+      return decodeURIComponent(window.location.search.replace(new RegExp("^(?:.*[&\\?]" + encodeURIComponent(key).replace(/[\.\+\*]/g, "\\$&") + "(?:\\=([^&]*))?)?.*$", "i"), "$1"));
+    }
+    var title = getQueryStringValue("title");
+    var page = getQueryStringValue("page");
+
+   // console.log(title, page)
+  </script>
+</head>
+
+<body>
+
+  <nav class="navbar">
+    <a href="index.html" class="navbar-brand"><span>M</span>ovie<span>WIKI</span></a>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="filter.html">Advanced search</a></li>
+      <li><a href="developer.html">developer</a></li>
+    </ul>
+    <button class="navbar-toggler">
+                  <span></span>
+                </button>
+  </nav>
+
+  <div class="flex-container">
+    <div style="padding-top:150px;" class="flex-title">
+      <center><h1>Movie <span>Wiki</span></h1><br></center>
+      <center><h3>This website was built with only HTML, CSS and JS. No Bootstrap or Framework was used. This website was developed by <a href="https://harishkumar-s-s.firebaseapp.com">S.S.Harish Kumar</a> in about 2 days. It uses OMDB API for fetching the movie details and displaying them.</h3></center>
+      <center><h1>Coded with &#9829 by Harish Kumar</h1></center>
+
+    </div>
+
+  </div>
+
+
+
+
+
+
+
+  <script src="script.js" type="text/javascript"></script>
+</body>
+
+</html>

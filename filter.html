@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Movie wiki</title>
+  <link href="style.css" rel="stylesheet">
+</head>
+<script>
+  function getQueryStringValue(key) {
+    return decodeURIComponent(window.location.search.replace(new RegExp("^(?:.*[&\\?]" + encodeURIComponent(key).replace(/[\.\+\*]/g, "\\$&") + "(?:\\=([^&]*))?)?.*$", "i"), "$1"));
+  }
+  var title = getQueryStringValue("title");
+  var year = getQueryStringValue("year");
+  var t = getQueryStringValue("type");
+  //console.log(title, year, t)
+  document.getElementById("query").value = title;
+  document.getElementById("ty").value = t
+  document.getElementById("year").value = year
+</script>
+<style>
+  input {
+    padding: 0;
+    margin: 0;
+    border-radius: 5px;
+    border: none;
+    padding: 5px 5px 5px 5px;
+    margin: 5px 5px 5px 5px;
+  }
+  
+  button {
+    border: none;
+    border-radius: 5px;
+    padding: 5px 5px 5px 5px;
+    margin: 5px 5px 5px 5px;
+    transition: 0.4s ease-in;
+  }
+  
+  button:hover {
+    background: #ae00ff;
+    background-image: -webkit-linear-gradient(45deg, #ffffff33 25%, transparent 25%, transparent 50%, #ffffff33 50%, #ffffff33 75%, transparent 75%, transparent);
+    padding: 5px 5px 5px 5px;
+    margin: 5px 5px 5px 5px;
+  }
+  
+  select {
+    border: none;
+    border-radius: 5px;
+    padding: 5px 5px 5px 5px;
+    margin: 5px 5px 5px 5px;
+  }
+</style>
+
+<body onload="get(title,t,year)">
+
+  <nav class="navbar">
+    <a href="index.html" class="navbar-brand"><span>M</span>ovie<span>WIKI</span></a>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="filter.html">Advanced search</a></li>
+      <li><a href="developer.html">Developer</a></li>
+
+    </ul>
+    <button class="navbar-toggler">
+                  <span></span>
+                </button>
+  </nav>
+
+  <div class="flex-container">
+    <div style="padding-top:100px;" class="flex-title">
+      <center>
+        <h1>Movie <span>Wiki</span></h1><br>
+        <p>Type your favourite movie name fully and get the details. Only the top 10 results are displayed here check home for all results</p>
+      </center>
+
+    </div>
+    <div class="flex-search">
+      <input id="query" name="query" />
+      <select name="ty" id="ty">
+        <option value="movie" onkeyup="get(query.value)">Movie</option>
+        <option value="series">Series</option>
+        <option value="episode">Episodes</option>
+      </select>
+      <input id="year" name="year" />
+
+      <button type="submit" onclick="get(query.value,ty.value,year.value)">Search</button>
+    </div>
+    <div id="livesearch"></div>
+  </div>
+
+  <div id="values"></div>
+
+
+
+
+
+  <script src="script.js" type="text/javascript"></script>
+</body>
+
+</html>
